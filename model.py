@@ -18,11 +18,8 @@ def standardize_features(x):
 import numpy as np
 
 def initialize_parameters(n_features):
-    # Маленькие значения около нуля (положительные и отрицательные)
-    weights = np.random.uniform(-0.01, 0.01, n_features)
-    
-    # Bias — скаляр (как мы выяснили ранее)
-    bias = 0.0  # или np.random.uniform(-0.01, 0.01)
+    weights = np.zeros(n_features) 
+    bias = 0.0
     
     return {
         'w': weights,
@@ -33,7 +30,7 @@ def initialize_parameters(n_features):
 import numpy as np
 
 def compute_scores(x, params):
-    return x @ params['w'] + float(params['b'])
+    return x @ params['w'] + params['b']
 
 # Step 4 - predict_from_scores (not yet solved)
 # TODO: implement
