@@ -18,16 +18,19 @@ def standardize_features(x):
 import numpy as np
 
 def initialize_parameters(n_features):
-    weights = np.ones(n_features)
-    bias = 0
-
+    weights = np.random.uniform(0, 1, n_features)
+    bias = np.random.uniform(0, 1, 1)[0] 
+    
     return {
-        'w' : weights,
-        'b' : bias
+        'w': weights,
+        'b': bias
     }
 
-# Step 3 - compute_scores (not yet solved)
-# TODO: implement
+# Step 3 - compute_scores
+import numpy as np
+
+def compute_scores(x, params):
+    return x @ params['w'] + params['b']
 
 # Step 4 - predict_from_scores (not yet solved)
 # TODO: implement
