@@ -19,7 +19,7 @@ import numpy as np
 
 def initialize_parameters(n_features):
     weights = np.random.uniform(0, 1, n_features)
-    bias = np.random.uniform(0, 1, 1)[0] 
+    bias = 0
     
     return {
         'w': weights,
