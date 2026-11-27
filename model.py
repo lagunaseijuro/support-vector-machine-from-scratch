@@ -53,8 +53,23 @@ def svm_objective(x, y, params, reg_lambda):
 
     return np.mean(hinge_loss) + reg_lambda * np.sum(w * w)
 
-# Step 7 - compute_gradients (not yet solved)
-# TODO: implement
+# Step 7 - compute_gradients
+import numpy as np
+
+def compute_gradients(x, y, params, reg_lambda):
+    n = x.shape[0]
+    raw_scores = compute_scores(x, params)
+    margins = 1 - y * raw_scores
+
+    bool_mask = (margins > 0).astype(float)
+
+    dW = -(x.T @ (bool_mask * y)) / n + 2 * reg_lambda * params['w']
+    db = -np.mean(y * bool_mask)
+
+    return {
+        'dw': dW,
+        'db': db
+    }
 
 # Step 8 - apply_update (not yet solved)
 # TODO: implement
