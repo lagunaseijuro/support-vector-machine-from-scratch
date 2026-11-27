@@ -90,8 +90,11 @@ def train_svm(x, y, learning_rate, reg_lambda, n_epochs):
     
     return params
 
-# Step 10 - predict_labels (not yet solved)
-# TODO: implement
+# Step 10 - predict_labels
+import numpy as np
+
+def predict_labels(x, params):
+    return predict_from_scores(compute_scores(x, params))
 
 # Step 11 - accuracy_score (not yet solved)
 # TODO: implement
